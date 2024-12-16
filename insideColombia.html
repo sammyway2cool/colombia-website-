@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colombia Slideshow</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        overflow: hidden;
+        background-color: #1a1a1a;
+        color: #fff;
+    }
+    
+    /*  */
+    .header {
+        text-align: center;
+        padding: 60px 20px 30px;  /* */
+        font-size: 36px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #333;
+        margin-top: 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 10;
+    }
+
+    /*  */
+    nav {
+        background-color: #333;
+        padding: 15px;
+        text-align: center;
+        position: relative;  /* */
+        z-index: 1000;
+    }
+
+    nav a {
+        color: #fff;
+        font-size: 18px;
+        margin: 0 15px;
+        text-decoration: none;
+        padding: 8px 15px;
+        display: inline-block;
+        border-radius: 3px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: #717171;
+        color: #fff;
+    }
+
+    .slideshow-container {
+        max-width: 800px;
+        position: relative;
+        margin: 50px auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .mySlides {
+        display: none;
+        position: relative;
+    }
+
+    .mySlides img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .mySlides p {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        user-select: none;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.6);
+        border-radius: 50%;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: #717171;
+    }
+
+    .dots-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+
+    iframe {
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .music-message {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        max-width: 90%;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    Inside Colombia
+</div>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="insideColombia.html">Inside Colombia</a>
+    <a href="colombiainfo.html">Colombia Info</a>
+</nav>
+
+<div class="slideshow-container">
+    <div class="mySlides">
+        <img src="IMG_6337.jpg" alt="Medellin">
+        <p>Medellín is a dynamic city in Colombia's Andes region, known for its transformation into a hub of innovation, culture, and technology. With vibrant art, nightlife, and rich history, Medellín shines as the "City of Eternal Spring."</p>
+    </div>
+    <div class="mySlides">
+        <img src="barranquilla.jpg" alt="Barranquilla">
+        <p>Barranquilla is a lively port city on Colombia's Caribbean coast, famous for its Carnival, cultural diversity, and a mix of modern and colonial architecture.</p>
+    </div>
+    <div class="mySlides">
+        <img src="cali.jpg" alt="Cali">
+        <p>Cali is renowned as the salsa capital of the world, offering vibrant Afro-Colombian heritage, lively nightlife, and rich traditions that make it a cultural treasure.</p>
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bwEhXZIJads?autoplay=1&mute=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+
+<div class="music-message">
+    Salsa music is the heartbeat of Colombian culture, full of energy, rhythm, and passion. It brings people together to celebrate life, express emotions, and tell stories, making it a cherished tradition loved worldwide.
+</div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+
+</body>
+</html>
